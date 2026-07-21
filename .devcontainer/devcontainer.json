@@ -1,12 +1,26 @@
 {
   "name": "HugoBlox Codespace",
-  "image": "ghcr.io/hugoblox/hugo-blox-dev:hugo0.161.1",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "22",
+      "pnpmVersion": "10.14.0"
+    },
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "0.162.0",
+      "extended": true
+    }
+  },
   "updateContentCommand": "pnpm install --frozen-lockfile --prefer-offline",
-  "postCreateCommand": "pnpm --version && hugo version",
+  "postCreateCommand": "pnpm --version && hugo version && go version",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ownable.ownable"
+        "ownable.ownable",
+        "golang.Go"
       ]
     }
   },
